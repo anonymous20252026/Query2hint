@@ -26,3 +26,6 @@ mats and remains robust to syntactic variations. In our evaluation,
  Query2Hint reduced total execution latency by 70.37% and P90
  latency by 70.77% compared to PostgreSQL, and achieved 7.69%
  and 3.39% improvements over LLMSteer, respectively. 
+
+ #  Architecture
+![image](https://github.com/user-attachments/assets/a8889890-e081-48f4-9389-bd4e55a24a92)
