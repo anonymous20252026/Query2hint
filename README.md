@@ -1,31 +1,32 @@
 # Query2hint
- Query2Hint is a lightweight, quantized framework that replaces general-purpose LLM embeddings with those from compact language models fine-tuned on SQL-hint pairs using contrastive learning. 
+
+Query2Hint: Reframing Optimizer Steering as SQL-Aware Hint
+Classification with Fast Meta-Adaptation 
 
  # Abstract
- Query optimization is a significant challenge in database systems,
- as it directly affects performance, scalability, and cost. Traditional
- machine learning methods often require extensive feature engineer
-ing. Recent work has shown that LLM-based embeddings of SQL
- query text can effectively capture important semantic information
- relevant to optimization tasks. While it is commonly understood in
- the database community that structural elements primarily deter
-mine query execution, the semantic intent of a query can provide
- critical context that improves the evaluation and selection of al
-ternative execution plans. Building on this insight, we introduce
- Query2Hint a lightweight, quantized framework that replaces
- general-purpose LLM embeddings with those from compact lan
-guage models fine-tuned on SQL-hint pairs using contrastive learn
-ing. These pairs are generated from variations in execution plans
- triggered by different optimizer hints, thereby encoding critical
- structural differences while preserving query intent. Our prelimi
-nary results indicate that these SQL-aware embeddings outperform
- proprietary large language models (LLMs) in terms of embedding
- quality, plan selection accuracy, and execution latency. Importantly,
- the fine-tuned model generalizes well across diverse SQL query for
-mats and remains robust to syntactic variations. In our evaluation,
- Query2Hint reduced total execution latency by 70.37% and P90
- latency by 70.77% compared to PostgreSQL, and achieved 7.69%
- and 3.39% improvements over LLMSteer, respectively. 
+ Recent studies have explored the use of large language models
+(LLMs) for query optimizer steering; however, practical deployment
+remains limited by dependence on proprietary APIs, inference costs,
+limited cross-workload generalization, and reproducibility issues.
+Wepresent Query2Hint, a transfer-aware framework for relational
+optimizer steering that combines domain-specific representation
+learning with rapid adaptation. Query2Hint uses a two-stage training
+design: (1) contrastive fine-tuning of compact SQLencodersonSQL
+hint pairs constructed from measured hint-performance data, and
+(2) Reptile-based meta-initialization to improve low-shot adaptation
+under workload shifts. At inference time, Query2Hint performs
+deterministic steering through lightweight hint classification, thereby
+eliminating the need for text generation and dependence on external
+APIs. In an end-to-end evaluation on JOB and CEB under a safety
+first binary steering protocol (choosing between the default optimizer
+and a fixed alternative steering option), Query2Hint reduced the total
+execution latency and P90 tail latency by up to ∼70% relative to the
+default optimizer, and further improved the end-to-end latency over
+the LLMSteer baseline. Under cross-workload transfer between CEB
+and JOB, Query2Hint remains competitive, with meta-initialization
+improving adaptation in low-shot settings. These results suggest that
+compact, task-tuned encoders can provide practical, reproducible,
+and cost-effective query steering without proprietary LLM services.
 
  #  Architecture
 ![image](https://github.com/user-attachments/assets/a8889890-e081-48f4-9389-bd4e55a24a92)
