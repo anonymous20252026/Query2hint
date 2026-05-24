@@ -1,7 +1,7 @@
 # AdaptSteer
 
-Query2Hint: Reframing Optimizer Steering as SQL-Aware Hint
-Classification with Fast Meta-Adaptation 
+AdaptSteer: Workload-Adaptive Optimizer Steering via
+Execution-Derived Preference Supervision
 
  # Abstract
 Database query optimizers often select suboptimal execution plans,
