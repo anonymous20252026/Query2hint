@@ -1,0 +1,38 @@
+# ── Encoder model weights (too large for GitHub, train with encoder_training.py) ──
+**/model.safetensors
+**/pytorch_model.bin
+**/model.bin
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Generated outputs (reproducible by running the scripts) ──────────────────
+results/
+figures/*.pdf
+figures/*.png
+
+# ── Environment ──────────────────────────────────────────────────────────────
+.env
+*.env
+venv/
+.venv/
+env/
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Large raw embeddings (not part of submission) ────────────────────────────
+*.csv.gz
+query_embeddings.csv
+embeddings_*.csv
